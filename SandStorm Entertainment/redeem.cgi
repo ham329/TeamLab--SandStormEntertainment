@@ -1,0 +1,105 @@
+#! /bin/bash
+echo "Content-type: text/html"
+echo ""
+
+echo "<html>"
+echo "<head>"
+echo "<title>Redeem Your Points</title>"
+echo "<link rel="stylesheet" type="text/css" href="style.css">"
+echo "</head>"
+echo "<body>"
+echo "<div>"
+echo "<h1>SandStorm"
+echo "<img src="http://www.harvesttrail.com/ss_logo.gif" width=30px height=30px>"
+echo "Entertainment"
+echo "</h1>"
+echo "</div>"
+echo "<div id="page">"
+echo "<div id="content">"
+echo "<div class="transbox">"
+echo "<ul>"
+echo "<li><a href="http://cit160lab.sandbox.csun.edu/~team20/index.html">Home</a></li>"
+echo "<li><a href="http://cit160lab.sandbox.csun.edu/~team20/about.html">About Us</a></li>"
+echo "<li><a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/contact.cgi">Contact Us</a></li>"
+echo "<li><a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/balance.cgi">Balance</a></li>"
+echo "<li><a class="active href=#Redeem">Redeem</a></li>"
+echo "<li><a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/register.cgi">Register</a><li>"
+echo "</ul>"
+echo "</div>"
+if [[ ! -z "$QUERY_STRING" ]]; then
+        username=$(echo "$QUERY_STRING" | sed -n 's/^.*username=\([^&]*\).*$/\1/p')
+        purchase=$(echo "$QUERY_STRING" | sed -n 's/^.*purchase=\([^&]*\).*$/\1/p')
+        if [[ -z "$purchase" ]]; then
+                echo "<h3 style="color:red">Please choose something to purchase.</h3>"
+        else
+                points=$(grep $username pointsdb | sed 's/^.* //')
+                balance=$(( points - purchase ))
+                if [[ $balance -ge 0 ]]; then
+                        replacestring="$username $balance"
+                        sed -i "s/^$username.*\$/$replacestring/" pointsdb
+                        echo "<h3>Thank you for your purchase! You have $balance points left.</h3>"
+                else
+                        echo "<h3 style="color:red">You don't have enough points to buy this.</h3>"
+                fi
+        fi
+fi
+echo "<form>"
+echo "Enter your username:<br>"
+echo "<select name="username">"
+while read name points; do
+        echo "<option value="$name">$name</option>"
+done < pointsdb
+echo "</select>"
+echo "<br>"
+echo "<p>Don't see your name in the list? <a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/register.cgi">Register</a> here!</p>"
+echo "<br><br>"
+echo "<h3>Choose one of the following items:</h3><br>"
+echo "<table>"
+echo "<tr>"
+echo "<td><image src="http://images10.newegg.com/ProductImageCompressAll300/17-114-174-12.jpg" width=100px height=100px></td>"
+echo "<td>Gaming mousepad: 500 points</td>"
+echo "<td><input type="radio" name="purchase" value="500"></td>"
+echo "<td>A fancy gaming mouse without a reliable surface is like a knight without their loyal steed. A high quality mouse mat goes a long way for any competitive gaming experience, so if you're stuck using a random household object or that old soda-stained dirt rag that used to be a mousepad ten years ago, treat yourself to this new, smooth mouse mat.</td>"
+echo "</tr>"
+echo "<tr>"
+echo "<td><image src="http://images10.newegg.com/NeweggImage/ProductImage/26-104-399-17.jpg" width=100px height=100px></td>"
+echo "<td>Gaming headset: 1000 points</td>"
+echo "<td><input type="radio" name="purchase" value="1000"></td>"
+echo "<td>No gamer worth their kill/death ratio would skimp on a decent headset. A worthy pair of cans can make the difference between guessing where enemies are and hunting them down like a sonically enhanced ninja. Listen to the sound of victory with crystal clarity through this powerful headset."
+echo "</tr>"
+echo "<tr>"
+echo "<td><image src="http://images10.newegg.com/ProductImage/26-465-005-10.jpg" width=100px height=100px></td>"
+echo "<td>Gaming mouse: 1500 points</td>"
+echo "<td><input type="radio" name="purchase" value="1500"></td>"
+echo "<td>Every PC gamer owns a mouse, but not every PC gamer owns a powerful gaming mouse. The best mouse for you won't just fit your hand like the perfect tool; it will have lower latency, come with better software for custom tweaking, and use sensors that keep up with your fast movements. If you play any games more intense than Solitaire, then you should be doing it with a gaming mouse, so pick this one up."
+echo "</tr>"
+echo "<tr>"
+echo "<td><image src="http://images10.newegg.com/ProductImage/23-828-001-33.jpg" width=100px height=100px></td>"
+echo "<td>Gaming keyboard: 2500 points</td>"
+echo "<td><input type="radio" name="purchase" value="2500"></td>"
+echo "<td>Don't let a mushy spacebar stand between you and conquering the enemy. The right keyboard is as key to victory as the right weapon in your hand. With Cherry MX Red switches for the smoothest action, this keyboard is sure to put you on top."
+echo "</tr>"
+echo "<tr>"
+echo "<td><image src="http://www.dxracer.com/uploads/item/a7e22ca5-70db-4f31-93fb-68acc9e023c0/title/320.jpg" width=100px height=100px></td>"
+echo "<td>Gaming chair: 5000 points</td>"
+echo "<td><input type="radio" name="purchase" value="5000"></td>"
+echo "<td>For the typical person who plays the occasional video game, a standard office chair is fine. Hardcore gamers, though, know the difference in comfort and usage; after ten hours of gaming, an office chair has put some serious dents in your gaming experience. A good chair can last you a decade, and you aren't upgrading to Spine 2.0 anytime soon, so grab this top-of-the-line gaming chair."
+echo "</tr>"
+echo "</tr>"
+echo "<tr>"
+echo "</tr>"
+echo "<tr>"
+echo "<td><input type="submit"></td>"
+echo "</tr>"
+echo "</table>"
+echo "</form>"
+echo "<div id="footer">"
+echo "<p>Copyright &copy; 2016 SandStorm Entertainment (TEAM 20)</p>"
+echo "</div>"
+echo "</div>"
+echo "</div>"
+echo "</body>"
+echo "</html>"
+
+exit 0
+

@@ -1,0 +1,189 @@
+/* CSS File */
+
+body {
+        color:#fff;
+        background: url("http://i.imgur.com/gXybUta.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-size: 12px;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align: center;
+}
+
+h1, h2, h3 {
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        /*color:#;*/
+
+
+}
+
+h1 { font-size: 44px; color:#fff; }
+
+h2 { font-size: 18px; }
+
+h3 {}
+
+p, ul, ol {
+
+        margin:20px;
+        line-height:240%;
+        text-align: justify;
+}
+
+header {
+        padding: 1em;
+        color:#ffffff;
+        background-color:#FF8C00;
+        clear: left;
+        text-transform:uppercase;
+        text-align: center;
+        font-weight: bold;
+        opacity:0.6;
+}
+
+#footer {
+        height:25px;
+
+        padding:0;
+        border-top: 1px solid black;
+        background-color:#FF8C00;
+
+}
+
+#footer p {
+        margin: 0;
+        padding: 5px 0px 0px 0px;
+        text-align: center;
+        line-height: normal;
+        text-transform: uppercase;
+        font-size:10px
+
+}
+
+#page {
+        width: 900px;
+        /*height:;*/
+        margin: auto auto;
+        padding: 40px 30px 0px 30px;
+}
+
+
+#content {
+        float:left;
+        width:800px;
+        border:25px;
+        color: #fff;
+        margin: 10px 40px;
+        background-color:#000;
+        opacity:0.8;
+        filter: alpha(opacity=60);
+}
+
+
+/*Nav Bar*/
+ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #FF8C00;
+        /*opacity:0.6;*/
+}
+
+li {
+        float: left;
+}
+
+li a {
+        display: block;
+        color: #000;
+        text-align: center;
+padding: 10px 36px;
+        text-decoration: none;
+}
+
+li a.active {
+        background-color: #CD853F;
+        color: white;
+}
+
+li a:hover:not(.active) {
+        background-color #8B4513;
+        color: white;
+}
+/*-------end of nav bar------*/
+
+
+
+
+/*For columns in the about.html page */
+div.container {
+        width:100%;
+        border: 1px solid gray;
+}
+
+/*left column*/
+nav {
+        float:left;
+        max-width: 160px;
+        margin: 0;
+        padding: 1em;
+        color:#fff;
+
+}
+
+nav ul {
+        life-style-type: none;
+        padding: 0;
+        color:#fff;
+        background-color:#000;
+        list-style-type:disc;
+}
+
+nav ul a {
+        text-decoration:none;
+}
+/*right column*/
+article {
+        margin-left:170px;
+        border-left:1px solid gray;
+        padding: 1em;
+        overflow: hidden;
+}
+/*---------end of columns-------*/
+
+#founders ul {
+        life-style-type: none;
+        padding: 0;
+        color:#fff;
+        background-color:#000;
+        list-style-type:disc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

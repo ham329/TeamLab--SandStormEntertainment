@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head> 
+
+   <link rel="stylesheet" type="text/css" href="style.css">            
+        
+</head>
+
+<body>
+
+   <div>
+     <h1 style="font-weight:bold">SandStorm <img src="http://www.harvesttrail.com/ss_logo.gif" width=30px height=30px> Entertainment </h1>
+   </div>
+
+   <!-- <h2>homepage</h2> -->
+   <div id="page">
+    <div id="content">
+     <div class="background">
+       <div class="transbox">
+         <ul style="font-size:12px">
+                <li><a class="active href=#Index">Home</a></li>
+                <li><a href="http://cit160lab.sandbox.csun.edu/~team20/about.html">About Us</a></li>
+                <li><a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/contact.cgi">Contact Us</a></li>
+                <li><a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/balance.cgi">Balance</a></li>
+                <li><a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/redeem.cgi">Redeem</a></li>
+                <li><a href="http://cit160lab.sandbox.csun.edu/~team20/cgi-bin/register.cgi">Register</a></li>
+        </ul>
+
+
+        </div>
+        <h2>home</h2>
+
+
+<!--slideshow-->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <style>
+                .mySlides {display:none}
+                .w3-left, .w3-right, .w3-badge {cursor:pointer}
+                .w3-badge {height:13px;width:13px;padding:10px}
+        </style>
+
+<div class="w3-container">
+  <h4> Games are a way of life </h4>
+  <p> Our games allow players to explore vast open worlds and adopt a variety of personas. There are many things to see and do in the rpg games we code. You can decide to be a wizard, knight, or even an alien. A gamer can easily spend many hours trying to collect all the content in the game and get perfect scores on missions. </p>
+</div>
+
+<div class="w3-content w3-display-container" style="max-width:800px font-size:10px">
+  <img class="mySlides" src="http://i.imgur.com/L681EE8.jpg" style="width:100%">
+  <img class="mySlides" src="http://i.imgur.com/LEDgFaK.jpg" style="width:100%">
+  <img class="mySlides" src="http://i.imgur.com/JulmkyD.jpg" style="width:100%">
+  <div class="w3-center w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+<div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+
+        <p> SandStorm Entertainment is a company involved in video game development. We code fantasy games for the PC environment, and we are a local business that was founded in the city of Northridge. Some of the titles we have released to the public include Fire Storm, Sky Canyon, and Shadow Realm. If we attract enough postive feedback on our games and collect more resources, then we might consider expanding our operations. We are a small company, and we do not release many products at a time. </p>
+
+        <!--footer-->
+      <div id="footer">
+         <p>Copyright &copy; 2016 SandStorm Entertainment (Team 20)</p>
+      </div><!--end of footer-->
+     </div><!--end of background-->
+    </div><!--end of content-->
+   </div><!--end of page-->
+
+</body>
+
+</html>
+
+
+
